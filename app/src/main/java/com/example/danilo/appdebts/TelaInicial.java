@@ -32,7 +32,7 @@ public class TelaInicial extends AppCompatActivity {
         mConection.close();
         cat.setMtipo("Energia");
         catDao.alter(cat);
-        catDao.remove(7);
+        //catDao.remove(7);
 
     }
     private void createConnection() {
