@@ -28,4 +28,12 @@ public class ScriptDll {
         sql.append(");");
         return sql.toString();
     }
+
+    public static String  getCategories(){
+        return "select * from categories";
+    }
+
+    public  static  String getCategory(){
+        return "Select * from categoria where id=?";
+    }
 }

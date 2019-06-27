@@ -7,6 +7,8 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.danilo.appdebts.classes.Category;
+import com.example.danilo.appdebts.dao.CategoryDAO;
 import com.example.danilo.appdebts.database.DatabaseHelper;
 
 public class TelaInicial extends AppCompatActivity {
@@ -21,6 +23,16 @@ public class TelaInicial extends AppCompatActivity {
         setContentView(R.layout.activity_tela_inicial);
 
         mLayout = findViewById(R.id.Layout);
+
+        createConnection();
+        Category cat = new Category("Tia do lanche");
+        CategoryDAO catDao = new CategoryDAO(mConection);
+        //catDao.insert(cat);
+        catDao.listCategories();
+        mConection.close();
+        cat.setMtipo("Energia");
+        catDao.alter(cat);
+        catDao.remove(7);
 
     }
     private void createConnection() {
