@@ -27,7 +27,7 @@ public class TelaInicial extends AppCompatActivity {
         createConnection();
         Category cat = new Category("Tia do lanche");
         CategoryDAO catDao = new CategoryDAO(mConection);
-        //catDao.insert(cat);
+        catDao.insert(cat);
         catDao.listCategories();
         mConection.close();
         cat.setMtipo("Energia");
