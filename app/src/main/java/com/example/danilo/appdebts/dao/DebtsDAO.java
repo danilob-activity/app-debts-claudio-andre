@@ -28,7 +28,7 @@ public class DebtsDAO {
         contentValues.put( "valor",deb.getValor());
         contentValues.put("data_pagamento", deb.getPaymentDate());
         contentValues.put("data_vencimento", deb.getExpirationDate());
-        mConnection.insertOrThrow( "dividas",null, contentValues);
+        long id = mConnection.insertOrThrow( "dividas",null, contentValues);
         Log.d("DebtsDAO","Inserção realizada com sucesso!");
     }
 

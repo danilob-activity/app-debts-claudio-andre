@@ -8,7 +8,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.danilo.appdebts.classes.Category;
+import com.example.danilo.appdebts.classes.Debts;
 import com.example.danilo.appdebts.dao.CategoryDAO;
+import com.example.danilo.appdebts.dao.DebtsDAO;
 import com.example.danilo.appdebts.database.DatabaseHelper;
 
 public class TelaInicial extends AppCompatActivity {
@@ -16,6 +18,8 @@ public class TelaInicial extends AppCompatActivity {
     private SQLiteDatabase mConection;
     private DatabaseHelper mDataHelper;
     private ConstraintLayout mLayout;
+    private CategoryDAO mCategoryDAO;
+    private DebtsDAO mDebtsDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +47,14 @@ public class TelaInicial extends AppCompatActivity {
         } catch (SQLException e) {
             Snackbar.make(mLayout, e.toString(), Snackbar.LENGTH_LONG).show();
         }
+    }
+
+    public void  populateDatabase(){
+        createConnection();
+        Category cat1 = new Category("Quitanda");
+        cat1 = mCategoryDAO.insert(cat1);
+
+        Debts debt1 = new Debts(cat1, (float)79.81, "produtos de", "");
+        //debt1 = mDebtsDAO.insert(debt1);
     }
 }
