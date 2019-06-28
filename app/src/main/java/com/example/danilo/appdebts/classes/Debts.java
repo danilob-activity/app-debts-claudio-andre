@@ -6,6 +6,7 @@ package com.example.danilo.appdebts.classes;
 
 public class Debts {
     private long mid;
+    private long cod_cat;
     private float valor;
     private String descricao;
     private String paymentDate;
@@ -21,4 +22,56 @@ public class Debts {
         this.paymentDate = paymentDate;
         this.expirationDate = expirationDate;
     }
+
+
+
+    public long getMid() {
+        return mid;
+    }
+
+    public void setMid(long mid) {
+        this.mid = mid;
+    }
+
+    public long getCod_cat() {
+        return cod_cat;
+    }
+
+    public void setCod_cat(long cod_cat) {
+        this.cod_cat = cod_cat;
+    }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
+    }
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+
 }
