@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.danilo.appdebts.classes.Category;
 import com.example.danilo.appdebts.classes.Debts;
 import com.example.danilo.appdebts.database.ScriptDll;
 
@@ -21,15 +22,17 @@ public class DebtsDAO {
         mConnection = connection;
     }
 
-    public void insert(Debts deb){
+    public Debts insert(Debts deb){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("cod_cat", deb.getCod_cat());
+        contentValues.put("cod_cat", deb.getCod_cat().getMid());
         contentValues.put("descricao", deb.getDescricao());
         contentValues.put( "valor",deb.getValor());
         contentValues.put("data_pagamento", deb.getPaymentDate());
         contentValues.put("data_vencimento", deb.getExpirationDate());
         long id = mConnection.insertOrThrow( "dividas",null, contentValues);
         Log.d("DebtsDAO","Inserção realizada com sucesso!");
+        deb.setMid(id);
+        return deb;
     }
 
     public void remove(long id){
@@ -40,7 +43,7 @@ public class DebtsDAO {
 
     public void alter(Debts deb){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("cod_cat", deb.getCod_cat());
+        contentValues.put("cod_cat", deb.getCod_cat().getMid());
         contentValues.put( "descricao",deb.getDescricao());
         contentValues.put("valor", deb.getValor());
         contentValues.put("data_pagamento", deb.getPaymentDate());
@@ -75,7 +78,7 @@ public class DebtsDAO {
         if(result.getCount()>0){
             result.moveToFirst();
             deb.setMid(result.getInt(result.getColumnIndexOrThrow("id")));
-            deb.setCod_cat(result.getLong(result.getColumnIndexOrThrow("cod_cat")));
+            Category cat = CategoryDAO.getCategory(result.getInt(result.getColumnIndexOrThrow("cod_cat")));
             deb.setDescricao(result.getString(result.getColumnIndexOrThrow("descricao")));
             deb.setValor(result.getFloat(result.getColumnIndexOrThrow("valor")));
             deb.setPaymentDate(result.getString(result.getColumnIndexOrThrow("data_pagamento")));
