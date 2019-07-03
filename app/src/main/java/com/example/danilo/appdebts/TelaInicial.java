@@ -51,10 +51,23 @@ public class TelaInicial extends AppCompatActivity {
 
     public void  populateDatabase(){
         createConnection();
-        Category cat1 = new Category("Quitanda");
+        Category cat1 = new Category("Casa");
         cat1 = mCategoryDAO.insert(cat1);
 
-        Debts debt1 = new Debts(cat1, (float)79.81, "produtos de", "");
-        //debt1 = mDebtsDAO.insert(debt1);
+        Category cat2 = new Category("Quitanda");
+        cat2 = mCategoryDAO.insert(cat2);
+
+        Category cat3 = new Category("Farmacia");
+        cat3 = mCategoryDAO.insert(cat3);
+
+        Debts debt1 = new Debts(cat1, (float)79.81, "produtos de limpeza", "20/08/2019", "30/08/2019");
+        debt1 = mDebtsDAO.insert(debt1);
+
+
+        Debts debt2 = new Debts(cat2, (float) 5.0,"Coxinha" , "5/07/2019", "3/07/2019");
+        debt2 = mDebtsDAO.insert(debt2);
+
+        Debts debt3 = new Debts(cat3, (float) 5.0,"Vita C" , "3/07/2019", "25/07/2019");
+        debt3 = mDebtsDAO.insert(debt3);
     }
 }
