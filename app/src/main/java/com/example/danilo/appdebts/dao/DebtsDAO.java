@@ -24,7 +24,7 @@ public class DebtsDAO {
 
     public Debts insert(Debts deb){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("cod_cat", deb.getCod_cat().getMid());
+        contentValues.put("cod_cat", String.valueOf(deb.getCod_cat()));
         contentValues.put("descricao", deb.getDescricao());
         contentValues.put( "valor",deb.getValor());
         contentValues.put("data_pagamento", deb.getPaymentDate());
@@ -43,7 +43,7 @@ public class DebtsDAO {
 
     public void alter(Debts deb){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("cod_cat", deb.getCod_cat().getMid());
+        contentValues.put("cod_cat", String.valueOf(deb.getCod_cat()));
         contentValues.put( "descricao",deb.getDescricao());
         contentValues.put("valor", deb.getValor());
         contentValues.put("data_pagamento", deb.getPaymentDate());

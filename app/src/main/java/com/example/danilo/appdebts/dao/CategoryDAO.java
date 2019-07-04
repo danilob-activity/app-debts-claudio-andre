@@ -61,7 +61,7 @@ public class CategoryDAO {
             return categories;
         }
 
-    public Category getCategory(long id){
+    public static Category getCategory(long id){
         Category cat = new Category();
         String[] params = new String[1];
         params[0] = String.valueOf(id);

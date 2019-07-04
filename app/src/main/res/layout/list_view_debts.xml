@@ -7,11 +7,39 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="337dp"
+        android:layout_height="41dp"
+        android:text="Descrição"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        android:text="Categoria"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@android:color/holo_blue_bright"
+        app:srcCompat="@drawable/baseline_payment_black_36"
+        tools:layout_editor_absoluteX="215dp"
+        tools:layout_editor_absoluteY="36dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@android:color/holo_blue_bright"
+        app:srcCompat="@drawable/baseline_add_black_36"
+        tools:layout_editor_absoluteX="265dp"
+        tools:layout_editor_absoluteY="34dp" />
+
 </android.support.constraint.ConstraintLayout>
