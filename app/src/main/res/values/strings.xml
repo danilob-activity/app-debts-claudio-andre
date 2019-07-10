@@ -2,4 +2,8 @@
     <string name="app_name">AppDebts</string>
     <string name="sucess_conection">conexão realiazada com sucesso</string>
     <string name="title_activity_main_window">MainWindow</string>
+    <string name="title_activity_insert_debts">InsertDebts</string>
+    <string name="cancelmenu" />
+    <string name="okmenu">ok</string>
+    <string name="cancelmenu" />
 </resources>

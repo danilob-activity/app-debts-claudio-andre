@@ -17,9 +17,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TelaInicial"
-            android:label="@string/title_activity_main_window"
-            android:theme="@style/AppTheme"></activity>
+            android:name=".InsertDebts"
+            android:label="@string/title_activity_insert_debts"
+            android:theme="@style/AppTheme2">
+        </activity>
     </application>
 
 </manifest>
