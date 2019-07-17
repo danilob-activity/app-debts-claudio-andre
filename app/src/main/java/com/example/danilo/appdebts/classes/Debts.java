@@ -1,10 +1,12 @@
 package com.example.danilo.appdebts.classes;
 
+import java.io.Serializable;
+
 /**
  * Created by aluno on 27/06/19.
  */
 
-public class Debts {
+public class Debts implements Serializable {
     private long mid;
     private Category cod_cat;
     private float valor;

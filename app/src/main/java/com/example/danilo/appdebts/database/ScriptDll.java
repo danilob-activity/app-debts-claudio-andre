@@ -36,4 +36,8 @@ public class ScriptDll {
     public  static  String getCategory(){
         return "Select * from categoria where id=?";
     }
+
+    public static String getCategoryName(){
+        return "select * from categoria where tipo=?";
+    }
 }
