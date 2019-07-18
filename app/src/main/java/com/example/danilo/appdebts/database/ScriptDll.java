@@ -40,4 +40,16 @@ public class ScriptDll {
     public static String getCategoryName(){
         return "select * from categoria where tipo=?";
     }
+
+    public static String getDebtsByCategory(){
+        return "select * from dividas order by cod_cat asc";
+    }
+
+    public static String getDebts(){
+        return "select * from dividas d, categorias c" +
+                "where d.cod_cat = c.id" +
+                "order by cod_cat asc";
+    }
+
+    
 }

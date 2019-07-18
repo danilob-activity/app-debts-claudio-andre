@@ -11,6 +11,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.danilo.appdebts.R;
 import com.example.danilo.appdebts.classes.adapters.DebtsAdapter;
@@ -19,6 +21,7 @@ import com.example.danilo.appdebts.database.DatabaseHelper;
 
 public class MainWindow extends AppCompatActivity {
 
+    private Spinner mSpinnerFilter;
     private SQLiteDatabase mConection;
     private DatabaseHelper mDataHelper;
     RecyclerView mListDebts;
@@ -26,12 +29,28 @@ public class MainWindow extends AppCompatActivity {
     DebtsDAO mDebtsDAO;
     private ConstraintLayout mLayout;
 
+    final String[] mOptionsFilter = {
+            "Todas as Dívidas",
+            "Dívidas em Aberto",
+            "Dividas Pagas",
+            "Dívidas por Categoria",
+            "Dívidas em Atraso"
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_window);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mSpinnerFilter = findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout. simple_spinner_dropdown_item,
+                mOptionsFilter
+        );
+        mSpinnerFilter.setAdapter(adapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -62,5 +81,7 @@ public class MainWindow extends AppCompatActivity {
             Snackbar.make(mLayout, e.toString(), Snackbar.LENGTH_LONG).show();
         }
     }
+
+
 
 }
